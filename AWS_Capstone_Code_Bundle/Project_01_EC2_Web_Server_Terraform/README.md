@@ -8,3 +8,4 @@ Open `http://<web_public_ip>` in your browser after ~90 seconds.
 ## Deliverables
 - GitHub repo link
 - Screenshot of rendered webpage
+# Project 6 PR update
