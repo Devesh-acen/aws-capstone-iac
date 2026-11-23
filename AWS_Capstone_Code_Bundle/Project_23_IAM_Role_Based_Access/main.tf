@@ -1,0 +1,45 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
+data "aws_ami" "amazon_linux" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023*-x86_64"]
+  }
+}
+
+resource "aws_iam_role" "ec2_s3_role" {
+  name = "capstone-ec2-s3-role"
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action    = "sts:AssumeRole"
+      Effect    = "Allow"
+      Principal = { Service = "ec2.amazonaws.com" }
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "s3_access" {
+  role       = aws_iam_role.ec2_s3_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+}
+
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "capstone-ec2-s3-profile"
+  role = aws_iam_role.ec2_s3_role.name
+}
+
+resource "aws_instance" "role_ec2" {
+  ami                  = data.aws_ami.amazon_linux.id
+  instance_type        = "t2.micro"
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  tags                 = { Name = "capstone-iam-role-ec2" }
+}
+
+output "instance_id" {
+  value = aws_instance.role_ec2.id
+}
