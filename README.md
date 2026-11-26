@@ -1,4 +1,4 @@
-[https://github.com/Devesh-acen/aws-capstone-iac/actions/workflows/terraform-ci.yml/badge.svg]
+<img src="https://github.com/Devesh-acen/aws-capstone-iac/actions/workflows/terraform-ci.yml/badge.svg" alt="Terraform CI">
  
 # AWS Cloud Infrastructure Automation — Capstone Assessment
  
