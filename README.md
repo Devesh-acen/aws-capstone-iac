@@ -1,6 +1,5 @@
-[![Terraform CI Validation](https://github.com/Devesh-acen/aws-capstone-iac/actions/workflows/terraform-ci.yml/badge.svg)](https://github.com/Devesh-acen/aws-capstone-iac/actions/workflows/terraform-ci.yml)
-# aws-capstone-iac
-Capstone Project
-
-## Branching Policy
-All infrastructure changes require Pull Request review before merging into main.
+[https://github.com/Devesh-acen/aws-capstone-iac/actions/workflows/terraform-ci.yml/badge.svg]
+ 
+# AWS Cloud Infrastructure Automation — Capstone Assessment
+ 
+Hands-on Infrastructure as Code, CI/CD, Linux/Windows Administration, Containers, and Cloud Monitoring implementations across Projects 1–24 (`AWS_Capstone_Code_Bundle/`).
